@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zerodha Live Market</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="dashboard">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">MARKET MONITOR</div>
+        <h1>Live Market Watch</h1>
+        <p>Real-time prices from Zerodha Kite Connect</p>
+      </div>
+      <div id="connection" class="status">
+        <span class="dot"></span>
+        Connecting
+      </div>
+    </header>
+
+    <section class="summary">
+      <div class="summary-card">
+        <span>Watchlist</span>
+        <strong id="watchlist-count">3 instruments</strong>
+      </div>
+      <div class="summary-card">
+        <span>Last update</span>
+        <strong id="last-update">Waiting for ticks</strong>
+      </div>
+    </section>
+
+    <section class="table-card">
+      <div class="table-heading">
+        <div>
+          <h2>Market watch</h2>
+          <p>Prices update automatically</p>
+        </div>
+        <span class="live-label">● LIVE FEED</span>
+      </div>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Instrument</th>
+              <th>Instrument token</th>
+              <th class="numeric">Last traded price (₹)</th>
+              <th>Last tick received</th>
+            </tr>
+          </thead>
+          <tbody id="market-body">
+            <tr>
+              <td colspan="4" class="empty">
+                Waiting for live market data...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="footnote">
+        Prices appear when ticks are received. This dashboard is for
+        market monitoring, not order execution.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
